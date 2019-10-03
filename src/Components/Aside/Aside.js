@@ -1,5 +1,5 @@
 import React from 'react';
-import { Aside } from './Aside.css';
+import './Aside.css';
 
 export const Aside = () => {
   return (
