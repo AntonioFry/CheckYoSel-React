@@ -6,15 +6,27 @@ class TodoForm extends Component {
   constructor() {
     super();
     this.state = {
-      todo: {
-        taskName: '',
-        tasks: []
-      }
+      taskName: '',
+      currentTask: '',
+      tasks: []
     };
   }
 
+  addTask = (e) => {
+    e.preventDefault()
+    const { tasks } = this.state
+    console.log(e.target.taskInput)
+    this.setState({ tasks: [...tasks, e.target.value]})
+
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
-    const { taskName, tasks } = this.state.todo
+    const { taskName, tasks } = this.state
     const formmattedTasks = tasks.map(task => {
       return (
         <div className="working-task">
@@ -25,18 +37,22 @@ class TodoForm extends Component {
     })
     return (
       <form className="todo-form">
-        <label className="todo-form-label" for={taskName}>Task Name</label>
+        <label className="todo-form-label" htmlFor="taskName">Task Name</label>
         <input
           type="text"
-          name={taskName}
+          name="taskName"
+          value={taskName}
           className="todo-form-input"
+          onChange={(e) => this.handleChange(e)}
         />
-        <label className="todo-form-label" for={tasks}>Tasks</label>
+        <label className="todo-form-label" htmlFor="currentTask">Tasks</label>
         <input
           type="text"
-          name={tasks}
+          name="currentTask"
           className="todo-form-input"
+          onChange={(e) => this.handleChange(e)}
         />
+        <button>Add Task</button>
         <section className="working-tasks">
           {tasks.length ? formmattedTasks : null}
         </section>
