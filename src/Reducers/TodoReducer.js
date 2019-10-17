@@ -7,3 +7,5 @@ const TodoReducer = (state = [], action) => {
       return state;
   }
 }
+
+export default TodoReducer;
