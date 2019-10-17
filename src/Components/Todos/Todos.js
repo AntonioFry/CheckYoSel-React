@@ -5,7 +5,7 @@ const Todos = ({taskName, tasks}) => {
     return (
       <div>
         <input type="checkbox" name={task}/>
-        <label for={task}>{task}</label>
+        <label for={task.currentTask}>{task.currentTask}</label>
       </div>
     )
   })
@@ -23,3 +23,5 @@ const Todos = ({taskName, tasks}) => {
     </article>
   )
 }
+
+export default Todos;
