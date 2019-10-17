@@ -1,0 +1,8 @@
+.todo-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo-form-input {
+  width: 100%;
+}
