@@ -14,10 +14,8 @@ class TodoForm extends Component {
 
   addTask = (e) => {
     e.preventDefault()
-    const { tasks } = this.state
-    console.log(e.target.taskInput)
-    this.setState({ tasks: [...tasks, e.target.value]})
-
+    const { tasks, currentTask } = this.state
+    this.setState({ tasks: [...tasks, currentTask]})
   }
 
   handleChange = (e) => {
@@ -52,7 +50,7 @@ class TodoForm extends Component {
           className="todo-form-input"
           onChange={(e) => this.handleChange(e)}
         />
-        <button>Add Task</button>
+        <button onClick={(e) => this.addTask(e)}>Add Task</button>
         <section className="working-tasks">
           {tasks.length ? formmattedTasks : null}
         </section>
