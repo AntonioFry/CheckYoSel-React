@@ -1,0 +1,27 @@
+.todo-box {
+  border: 1px black solid;
+  width: 35%;
+}
+
+.todo-title-container {
+  border-bottom: 1px black solid;
+}
+
+h3 {
+  margin: 10px;
+}
+
+.todo-tasks {
+  margin: 10px
+}
+
+.todo-buttons-container {
+  border-top: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-buttons {
+  border: 0px;
+  margin: 5px;
+}
