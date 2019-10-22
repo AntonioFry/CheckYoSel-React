@@ -1,6 +1,8 @@
 .todo-box {
   border: 1px black solid;
-  width: 35%;
+  height: fit-content;
+  width: 80%;
+  margin: 0px auto;
 }
 
 .todo-title-container {
