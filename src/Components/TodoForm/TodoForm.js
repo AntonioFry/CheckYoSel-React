@@ -68,7 +68,7 @@ export class TodoForm extends Component {
         <section className="working-tasks">
           {tasks.length ? formmattedTasks : null}
         </section>
-        <button onClick={(e) => this.submitTask(e)}>Sumbit Todo</button>
+        <button className="submit-todo-button" onClick={(e) => this.submitTask(e)}>Sumbit Todo</button>
       </form>
     )
   }
