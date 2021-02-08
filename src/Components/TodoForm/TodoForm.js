@@ -17,7 +17,17 @@ export class TodoForm extends Component {
   addTask = (e) => {
     e.preventDefault()
     const { tasks, currentTask } = this.state
-    this.setState({ tasks: [...tasks, {currentTask, id: Date.now()}]})
+    this.setState({ tasks: [...tasks, {currentTask, id: Date.now()}] })
+  }
+
+  removeTask = (e) => {
+    e.preventDefault();
+    const { tasks } = this.state;
+    const taskId = e.target.getAttribute('data-id');
+    const newTasks = tasks.filter(task => {
+      return task.id !== parseInt(taskId);
+    });
+    this.setState({ tasks: newTasks });
   }
 
   handleChange = (e) => {
@@ -41,7 +51,7 @@ export class TodoForm extends Component {
     const formmattedTasks = tasks.map(task => {
       return (
         <div key={task.id} className="working-task">
-          <button>❌</button>
+          <button data-id={task.id} className="remove-task-button" onClick={(e) => this.removeTask(e)}>❌</button>
           <p className="working-task-text">{task.currentTask}</p>
         </div>
       )
