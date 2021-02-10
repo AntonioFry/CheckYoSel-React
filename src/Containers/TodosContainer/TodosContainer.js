@@ -5,7 +5,6 @@ import './TodosContainer.css'
 
 class TodosContainer extends Component {
 
-
   render() {
     const formattedTodos = this.props.todos.map(todo => {
       return (
