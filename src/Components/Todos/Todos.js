@@ -1,29 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Todos.css';
 
-const Todos = ({taskName, tasks}) => {
-  const formattedTasks = tasks.map(task => {
+class Todos extends Component {
+  constructor() {
+    super();
+    this.state = {
+      checked: [],
+      allChecked: false
+    }
+  }
+
+  componentDidMount() {
+    const { tasks } = this.props;
+    const checkedArray = tasks.map(task => {
+      return task.checked;
+    });
+    this.setState({ checked: checkedArray });
+  }
+
+  render() {
+    const { tasks, taskName } = this.props
+
+    const formattedTasks = tasks.map((task, index) => {
+      return (
+        <div>
+          <input data-id={index} type="checkbox" name={task}/>
+          <label for={task.currentTask}>{task.currentTask}</label>
+        </div>
+      )
+    })
     return (
-      <div>
-        <input type="checkbox" name={task}/>
-        <label for={task.currentTask}>{task.currentTask}</label>
-      </div>
+      <article className="todo-box">
+        <div className="todo-title-container">
+          <h3>{taskName}</h3>
+        </div>
+        <form className="todo-tasks">
+          {formattedTasks}
+        </form>
+        <div className="todo-buttons-container">
+          <button className="todo-buttons">⚡️</button>
+          <button className="todo-buttons">❌</button>
+        </div>
+      </article>
     )
-  })
-  return (
-    <article className="todo-box">
-      <div className="todo-title-container">
-        <h3>{taskName}</h3>
-      </div>
-      <form className="todo-tasks">
-        {formattedTasks}
-      </form>
-      <div className="todo-buttons-container">
-        <button className="todo-buttons">⚡️</button>
-        <button className="todo-buttons">❌</button>
-      </div>
-    </article>
-  )
+  }
 }
 
 export default Todos;
