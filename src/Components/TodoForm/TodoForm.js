@@ -39,6 +39,7 @@ export class TodoForm extends Component {
     e.preventDefault();
     const { tasks, taskName } = this.state
     const todo = {
+      id: Date.now(),
       taskName,
       tasks
     };
