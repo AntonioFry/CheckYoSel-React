@@ -10,12 +10,16 @@ class Todos extends Component {
     }
   }
 
-  render() {
-    const { tasks, taskName } = this.props
-
+  componentDidMount() {
+    const { tasks } = this.props;
     const checkedArray = tasks.map(task => {
       return task.checked;
     });
+    this.setState({ checked: checkedArray });
+  }
+
+  render() {
+    const { tasks, taskName } = this.props
 
     const formattedTasks = tasks.map((task, index) => {
       return (
