@@ -17,7 +17,7 @@ export class TodoForm extends Component {
   addTask = (e) => {
     e.preventDefault()
     const { tasks, currentTask } = this.state
-    this.setState({ tasks: [...tasks, {currentTask, id: Date.now()}] })
+    this.setState({ tasks: [...tasks, {currentTask, id: Date.now(), checked: false}] })
   }
 
   removeTask = (e) => {
