@@ -19,13 +19,11 @@ class Todos extends Component {
   }
 
   toggleCheckedStatus = (e) => {
-    e.preventDefault();
     const checkboxId = e.target.getAttribute('data-checkbox-id');
     const checkedStatus = e.target.checked;
     let newCheckedList = this.state.checked;
     newCheckedList[checkboxId] = checkedStatus;
     this.setState({ checked: newCheckedList });
-    console.log(this.state.checked);
   }
 
   render() {
