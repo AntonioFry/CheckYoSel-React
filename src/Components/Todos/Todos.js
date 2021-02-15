@@ -18,17 +18,26 @@ class Todos extends Component {
     this.setState({ checked: checkedArray });
   }
 
+  toggleCheckedStatus = (e) => {
+    const checkboxId = e.target.getAttribute('data-checkbox-id');
+    const checkedStatus = e.target.checked;
+    let newCheckedList = this.state.checked;
+    newCheckedList[checkboxId] = checkedStatus;
+    this.setState({ checked: newCheckedList });
+  }
+
   render() {
     const { tasks, taskName } = this.props
 
     const formattedTasks = tasks.map((task, index) => {
       return (
         <div>
-          <input data-id={index} type="checkbox" name={task}/>
+          <input data-checkbox-id={`${index}`} type="checkbox" checked={this.state.checked[index]} onChange={(e) => this.toggleCheckedStatus(e)}/>
           <label for={task.currentTask}>{task.currentTask}</label>
         </div>
       )
     })
+
     return (
       <article className="todo-box">
         <div className="todo-title-container">
