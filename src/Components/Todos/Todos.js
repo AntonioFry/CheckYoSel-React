@@ -23,8 +23,20 @@ class Todos extends Component {
     const checkedStatus = e.target.checked;
     let newCheckedList = this.state.checked;
     newCheckedList[checkboxId] = checkedStatus;
-    this.setState({ checked: newCheckedList });
-  }
+    this.setState({ checked: newCheckedList }, function() {
+      this.verifyAllChecked();
+    });
+  };
+
+  verifyAllChecked = async () => {
+    let completeChecks = true;
+    this.state.checked.forEach(checkedTask => {
+      if (checkedTask === false) {
+        completeChecks = false;
+      };
+    });
+    this.setState({ allChecked: completeChecks });
+  };
 
   render() {
     const { tasks, taskName } = this.props
