@@ -60,7 +60,7 @@ class Todos extends Component {
         </form>
         <div className="todo-buttons-container">
           <button className="todo-buttons">⚡️</button>
-          <button className="todo-buttons">❌</button>
+          <button className="todo-buttons" disabled={!this.state.allChecked}>❌</button>
         </div>
       </article>
     )
