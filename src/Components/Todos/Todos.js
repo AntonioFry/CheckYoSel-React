@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { removeTodo } from  '../../Actions/index';
+import { connect } from 'react-redux';
 import './Todos.css';
 
 class Todos extends Component {
@@ -38,6 +40,12 @@ class Todos extends Component {
     this.setState({ allChecked: completeChecks });
   };
 
+  deleteTodo = (e) => {
+    const { id, removeTodo } = this.props
+    e.preventDefault();
+    removeTodo(id);
+  }
+
   render() {
     const { tasks, taskName } = this.props
 
@@ -60,11 +68,15 @@ class Todos extends Component {
         </form>
         <div className="todo-buttons-container">
           <button className="todo-buttons">⚡️</button>
-          <button className="todo-buttons" disabled={!this.state.allChecked}>❌</button>
+          <button className="todo-buttons" disabled={!this.state.allChecked} onClick={(e) => this.deleteTodo(e)}>❌</button>
         </div>
       </article>
     )
   }
 }
 
-export default Todos;
+const mapDispatchToProps = (dispatch) => ({
+  removeTodo: todoId => dispatch(removeTodo(todoId))
+});
+
+export default connect(null, mapDispatchToProps)(Todos);
