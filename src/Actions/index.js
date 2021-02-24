@@ -3,7 +3,7 @@ export const addTodo = (todo) => ({
   todo
 });
 
-export const removeTodo = (todo) => ({
+export const removeTodo = (todoId) => ({
   type: "REMOVE_TODO",
-  todo
+  todoId
 });

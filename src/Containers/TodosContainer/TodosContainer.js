@@ -8,7 +8,7 @@ class TodosContainer extends Component {
   render() {
     const formattedTodos = this.props.todos.map(todo => {
       return (
-        <Todos taskName={todo.taskName} tasks={todo.tasks}/>
+        <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id}/>
       )
     })
     return (
