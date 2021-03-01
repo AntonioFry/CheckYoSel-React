@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import './TodosContainer.css'
 
 class TodosContainer extends Component {
-
   render() {
     const formattedTodos = this.props.todos.map(todo => {
       return (
-        <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id}/>
+        <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id} urgent={todo.urgent}/>
       )
     })
     return (
