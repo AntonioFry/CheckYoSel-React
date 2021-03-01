@@ -41,7 +41,8 @@ export class TodoForm extends Component {
     const todo = {
       id: Date.now(),
       taskName,
-      tasks
+      tasks,
+      urgent: false
     };
     this.props.addTodo(todo)
     this.setState({ taskName: '', currentTask: '', tasks: [] });
