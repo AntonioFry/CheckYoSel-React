@@ -8,7 +8,15 @@ const TodoReducer = (state = [], action) => {
         return todo.id !== action.todoId;
       });
       return newTodos;
-  
+
+    case "TOGGLE_URGENCY":
+      return state.map(todo => {
+        if (todo.id === action.todoId) {
+          todo.urgent = !todo.urgent;
+        }
+        return todo
+      });
+
     default:
       return state;
   }
