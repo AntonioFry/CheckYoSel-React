@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { removeTodo } from  '../../Actions/index';
+import { removeTodo, toggleUrgency } from  '../../Actions/index';
 import { connect } from 'react-redux';
 import './Todos.css';
+import { TodoForm } from '../TodoForm/TodoForm';
 
 class Todos extends Component {
   constructor() {
@@ -44,6 +45,12 @@ class Todos extends Component {
     const { id, removeTodo } = this.props
     e.preventDefault();
     removeTodo(id);
+  };
+
+  toggleUrgent = (e) => {
+    const { id, toggleUrgency } = this.props;
+    e.preventDefault();
+    toggleUrgency(id);
   }
 
   render() {
@@ -67,7 +74,7 @@ class Todos extends Component {
           {formattedTasks}
         </form>
         <div className="todo-buttons-container">
-          <button className="todo-buttons">⚡️</button>
+          <button className="todo-buttons" onClick={(e) => this.toggleUrgent(e)}>⚡️</button>
           <button className="todo-buttons" disabled={!this.state.allChecked} onClick={(e) => this.deleteTodo(e)}>❌</button>
         </div>
       </article>
@@ -76,7 +83,8 @@ class Todos extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  removeTodo: todoId => dispatch(removeTodo(todoId))
+  removeTodo: todoId => dispatch(removeTodo(todoId)),
+  toggleUrgency: (todoId, urgency) => dispatch(toggleUrgency(todoId, urgency))
 });
 
 export default connect(null, mapDispatchToProps)(Todos);
