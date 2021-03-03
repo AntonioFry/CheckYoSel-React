@@ -5,11 +5,26 @@ import './TodosContainer.css'
 
 class TodosContainer extends Component {
   render() {
-    const formattedTodos = this.props.todos.map(todo => {
+    const { urgentTodosVisibility, todos } = this.props;
+    let formattedTodos;
+    
+    const allTodos = todos.map(todo => {
       return (
         <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id} urgent={todo.urgent}/>
       )
+    });
+
+    const filteredUrgentTodos = todos.filter(todo => {
+      return todo.urgent === true;
     })
+    
+    const formattedUrgentTodos = filteredUrgentTodos.map(todo => {
+      return <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id} urgent={todo.urgent} />
+    });
+    console.log(formattedUrgentTodos)
+
+    urgentTodosVisibility === true ? formattedTodos = formattedUrgentTodos : formattedTodos = allTodos;
+
     return (
       <section className="todos-section">
         {this.props.todos.length ? formattedTodos : null}
