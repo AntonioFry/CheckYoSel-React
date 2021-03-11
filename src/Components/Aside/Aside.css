@@ -3,3 +3,9 @@ aside {
   height: 625px;
   width: 25%;
 }
+
+.toggle-urgent-button {
+  width: 90%;
+  display: block;
+  margin: 0px auto;
+}

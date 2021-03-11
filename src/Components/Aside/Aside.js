@@ -6,7 +6,7 @@ export const Aside = ({ changeTodosUrgentVisibility }) => {
   return (
     <aside>
       <TodoForm />
-      <button onClick={(e) => changeTodosUrgentVisibility(e)}>Toggle Urgent</button>
+      <button className="toggle-urgent-button" onClick={(e) => changeTodosUrgentVisibility(e)}>Toggle Urgent</button>
     </aside>
   )
 }
