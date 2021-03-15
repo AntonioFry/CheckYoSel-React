@@ -15,7 +15,6 @@ class App extends Component {
   changeTodosUrgentVisibility = (e) => {
     e.preventDefault();
     this.setState({ urgentTodosVisibility: !this.state.urgentTodosVisibility });
-    console.log(this.state.urgentTodosVisibility)
   }
 
   render() {
