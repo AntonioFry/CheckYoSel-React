@@ -76,7 +76,7 @@ export class TodoForm extends Component {
           className="todo-form-input"
           onChange={(e) => this.handleChange(e)}
         />
-        <button className="add-task-button" onClick={(e) => this.addTask(e)}>Add Task</button>
+        <button className="add-task-button" disabled={currentTask === ''} onClick={(e) => this.addTask(e)}>Add Task</button>
         <section className="working-tasks">
           {tasks.length ? formmattedTasks : null}
         </section>
