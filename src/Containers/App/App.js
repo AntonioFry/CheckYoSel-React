@@ -23,6 +23,7 @@ class App extends Component {
         <Header />
         <Aside
           changeTodosUrgentVisibility={this.changeTodosUrgentVisibility}
+          urgentTodosVisibility={this.state.urgentTodosVisibility}
         />
         <TodosContainer
           urgentTodosVisibility={this.state.urgentTodosVisibility}
