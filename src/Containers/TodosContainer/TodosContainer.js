@@ -21,7 +21,6 @@ class TodosContainer extends Component {
     const formattedUrgentTodos = filteredUrgentTodos.map(todo => {
       return <Todos taskName={todo.taskName} tasks={todo.tasks} id={todo.id} urgent={todo.urgent} />
     });
-    console.log(formattedUrgentTodos)
 
     urgentTodosVisibility === true ? formattedTodos = formattedUrgentTodos : formattedTodos = allTodos;
 
