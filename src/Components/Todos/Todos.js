@@ -54,7 +54,10 @@ class Todos extends Component {
   }
 
   render() {
-    const { tasks, taskName } = this.props
+    const { tasks, taskName, urgent } = this.props
+
+    let urgentButtonStyle;
+    urgent ? urgentButtonStyle = 'urgent-btn-toggled' : urgentButtonStyle = 'urgent-btn';
 
     const formattedTasks = tasks.map((task, index) => {
       return (
@@ -74,7 +77,7 @@ class Todos extends Component {
           {formattedTasks}
         </form>
         <div className="todo-buttons-container">
-          <button className="todo-buttons" onClick={(e) => this.toggleUrgent(e)}>⚡️</button>
+          <button className={urgentButtonStyle} onClick={(e) => this.toggleUrgent(e)}>⚡️</button>
           <button className="todo-buttons" disabled={!this.state.allChecked} onClick={(e) => this.deleteTodo(e)}>❌</button>
         </div>
       </article>

@@ -1,7 +1,8 @@
 aside {
-  background-color: #2188f347;
+  background-color: #ebe8e8a2;
   height: 625px;
   width: 25%;
+  border-radius: 5px;
 }
 
 .toggle-urgent-button {
