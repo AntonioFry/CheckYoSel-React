@@ -21,13 +21,15 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <Aside
-          changeTodosUrgentVisibility={this.changeTodosUrgentVisibility}
-          urgentTodosVisibility={this.state.urgentTodosVisibility}
-        />
-        <TodosContainer
-          urgentTodosVisibility={this.state.urgentTodosVisibility}
-        />
+        <div className="dashboard-container">
+          <Aside
+            changeTodosUrgentVisibility={this.changeTodosUrgentVisibility}
+            urgentTodosVisibility={this.state.urgentTodosVisibility}
+          />
+          <TodosContainer
+            urgentTodosVisibility={this.state.urgentTodosVisibility}
+          />
+        </div>
       </main>
     );
   }
