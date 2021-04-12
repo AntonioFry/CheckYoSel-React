@@ -1,13 +1,15 @@
 .todo-box {
-  border: 1px black solid;
+  background-color: #ebe8e8a2;
+  border: 0.5px rgba(226, 226, 226, 0.89) solid;
   border-radius: 6px;
+  box-shadow: 5px 3px 7px -2px rgba(0,0,0,0.52);
   height: fit-content;
   width: 80%;
   margin: 0px auto;
 }
 
 .todo-title-container {
-  border-bottom: 1px black solid;
+  border-bottom: 0.5px rgba(226, 226, 226, 0.89) solid;
 }
 
 h3 {
@@ -19,7 +21,7 @@ h3 {
 }
 
 .todo-buttons-container {
-  border-top: 1px black solid;
+  border-top: 0.5px rgba(226, 226, 226, 0.89) solid;
   display: flex;
   justify-content: space-between;
 }
@@ -27,6 +29,7 @@ h3 {
 .urgent-btn-toggled,
 .urgent-btn,
 .todo-buttons {
+  background-color: rgba(194, 194, 194, 0.61);
   border: 0px;
   border-radius: 3px;
   margin: 5px;
