@@ -24,6 +24,16 @@
   width: 100%;
 }
 
+.remove-task-button {
+  background-color: rgba(194, 194, 194, 0.61);
+  border: 0px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: x-small;
+  width: 25px;
+  padding: 0px 6px;
+}
+
 .working-tasks {
   margin: 0px;
   width: 100%;
@@ -37,4 +47,5 @@
 
 .working-task-text {
   margin: 0px 5px 0px;
+  font-size: large;
 }
